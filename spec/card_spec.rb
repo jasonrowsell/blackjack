@@ -18,5 +18,14 @@ describe Card do
   it 'should respond to show' do
     expect(@card). to respond_to(:show)
   end
-  
+  it 'should return hearts for suit' do
+    expect(@card.suit). to eq('Hearts')
+  end
+  it 'should return 8 for rank' do
+    expect(@card.rank). to eq('8')
+  end
+  it 'should return true for show' do
+    expect(@card.show). to eq(true)
+  end
+
 end
