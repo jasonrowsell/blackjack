@@ -1,45 +1,31 @@
 require 'card'
 
 describe Card do
+  let (:subject) { described_class.new('Hearts', '8')}
 
-  before do
-    suit = 'Hearts'
-    rank = '8'
-
-    @card = Card.new(suit, rank)
-  end
-
-  it 'should respond to suit' do
-    expect(@card).to respond_to(:suit)
-  end
-
-  it 'should respond to rank' do
-    expect(@card).to respond_to(:rank)
-  end
-
-  it 'should respond to show' do
-    expect(@card).to respond_to(:show)
-  end
-
+  it { is_expected.to respond_to :suit }
+  it { is_expected.to respond_to :rank }
+  it { is_expected.to respond_to :show }
+  
   it 'should return hearts for suit' do
-    expect(@card.suit).to eq('Hearts')
+    expect(subject.suit).to eq('Hearts')
   end
 
   it 'should return 8 for rank' do
-    expect(@card.rank).to eq('8')
+    expect(subject.rank).to eq('8')
   end
 
   it 'should return true for show' do
-    expect(@card.show).to eq(true)
+    expect(subject.show).to eq(true)
   end
 
   it 'should return the suit and rank if show is true' do
-    expect("#{@card}").to eq("#{@card.rank} of #{@card.suit}")
+    expect("#{subject}").to eq("#{subject.rank} of #{subject.suit}")
   end
 
   it 'should not return the suit and rank if show is false' do
-    @card.show = false
-    expect("#{@card}").to eq("Card is face down right now")
+    subject.show = false
+    expect("#{subject}").to eq("Card is face down right now")
   end
 
 end

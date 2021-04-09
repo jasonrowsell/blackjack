@@ -5,6 +5,6 @@ rank = '8'
 
 card = Card.new(suit, rank)
 
-puts card
-card.show = false
+puts card.suit
+card.rank
 puts card
